@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style/about.css' %}">
+
+</head>
+<body>
+    <nav>
+        <img src="{% static 'images/logo.png' %}" alt="logo"/>
+        <a href="#"></a>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'predict' %}">Predict</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </nav>
+    
+      <!-- Main section -->
+    
+      <div class="main">
+        <div class="info">
+          <h1>Best and Experienced Faculties</h1>
+          <p>We had bring the best experts of medical field to provide you the best service as possible. We are trying our
+            best to serve the world with our facilities, so that everyone can have a proper medical facility to avail.</p>
+        </div>
+    
+        <div class="cards">
+          <div class="card">
+            <h1>20+</h1>
+            <h3>Doctors</h3>
+          </div>
+    
+          <div class="card">
+            <h1>50,000+</h1>
+            <h3>Customers</h3>
+          </div>
+    
+          <div class="card">
+            <h1>500+</h1>
+            <h3>Students</h3>
+          </div>
+        </div>
+    
+      </div>
+    
+    </body>
+    
+    </html>
+</body>
+</html>

@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family:sans-serif;
+  }
+  
+  body{
+    background-color: #f7f9ff;
+    background-image: url("{% static 'images/stethoscope.png' %}");
+    background-repeat: no-repeat;
+    background-position: top;
+    /* background-attachment: fixed; */
+    background-size: cover;
+  }
+  
+  /* Navigation Menu */
+  
+  nav{
+    padding: 1.4rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav img{
+    height: 48px;
+  }
+  
+  ul{
+    display: flex;
+    gap: 3rem;
+  }
+  
+  a{
+    text-decoration: none;
+    color: #000000;
+  }
+  
+  li{
+    list-style: none;
+    font-weight: bold;
+  }
+  
+  /* Main Hero Section */
+  
+  .hero{
+    display: flex;
+  }
+  
+  /* Left side hero section */
+  
+  .left-hero-section{
+    margin: 1rem;
+    position: relative;
+  
+  }
+  
+  img[alt="topAngle"]{
+    width: 25px;
+  }
+  
+  img[alt="bottomAngle"]{
+    width: 25px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .info-container {
+    padding-left: 1rem;
+  }
+  
+  img[alt="mouse"]{
+    width: 28px;
+    position: relative;
+    top: 0.5rem;
+  }
+  
+  .left-hero-section p{
+    font-size: 18px;
+    color: #5d5d5e;
+    margin: 0.7rem 0;
+  }
+  
+  .left-hero-section button{
+    width: 220px;
+    background-color: #28c28c;
+    color: #ffffff;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 3rem;
+    padding:1rem 0.5rem;
+    cursor: pointer;
+  }
+  
+  /* Right side hero section */
+  
+  img[alt="greenBox"]{
+    position: absolute;
+    right: 0;
+    bottom: 1.9rem;
+  }
+  
+  img[alt="yellowBox"]{
+    position: absolute;
+    right: 0;
+    bottom: 3rem;
+  }
+  
+  img[alt="doctor-img"]{
+    height: 90%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  
+  
+  /* Media Query */
+  
+  @media (min-width: 280px) and (max-width: 768px) {
+  
+    nav{
+      padding: 1.4rem 2rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  
+  /* Hero Left Section */
+  
+  @media (min-width: 280px) and (max-width: 768px) {
+    .left-hero-section h1{
+      font-size: 1.5rem;
+      max-width: 320px;
+    }
+  
+    .left-hero-section p{
+      max-width: 320px;
+    }
+  
+    .left-hero-section button{
+      width: 150px;
+      font-size: 0.9rem;
+      border-radius: 3rem;
+      padding:0.5rem;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .left-hero-section h1{
+      font-size: 2rem;
+      max-width: 420px;
+    }
+  
+    .left-hero-section p{
+      max-width: 340px;
+    }
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1350px) {
+  
+    .left-hero-section h1{
+      font-size: 3rem;
+      max-width: 625px;
+    }
+  
+    .left-hero-section p{
+      max-width: 520px;
+    }
+  }
+  
+  @media (min-width: 1351px) {
+  
+    .left-hero-section h1{
+      font-size: 4rem;
+      max-width: 850px;
+    }
+  }
+  
+  /* Hero Right Section */
+  @media (max-width: 290px) {
+  
+    ul{
+      gap: 0.7rem;
+    }
+  
+    img[alt="doctor-img"]{
+      height: 30%;
+    }
+  
+    img[alt="greenBox"]{
+      width: 140px;
+    }
+    
+    img[alt="yellowBox"]{
+      width: 120px;
+    }
+  }
+  
+  @media (min-width: 291px) and (max-width: 500px) {
+  
+    img[alt="doctor-img"]{
+      height: 50%;
+    }
+  
+    img[alt="greenBox"]{
+      width: 270px;
+    }
+    
+    img[alt="yellowBox"]{
+      width: 240px;
+    }
+  }
+  
+  @media (min-width: 501px) and (max-width: 768px) {
+  
+    img[alt="doctor-img"]{
+      height: 60%;
+    }
+  
+    img[alt="greenBox"]{
+      width: 335px;
+    }
+    
+    img[alt="yellowBox"]{
+      width: 305px;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+  
+    img[alt="doctor-img"]{
+      height: 75%;
+    }
+  
+    img[alt="greenBox"]{
+      width: 430px;
+    }
+    
+    img[alt="yellowBox"]{
+      width: 400px;
+    }
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1350px) {
+  
+    img[alt="doctor-img"]{
+      height: 80%;
+    }
+  
+    img[alt="greenBox"]{
+      width: 450px;
+    }
+    
+    img[alt="yellowBox"]{
+      width: 420px;
+    }
+  }
+  
+  @media (min-width: 1351px){
+  
+    img[alt="doctor-img"]{
+      height: 90%;
+    }
+  
+    img[alt="greenBox"]{
+      width: 500px;
+    }
+    
+    img[alt="yellowBox"]{
+      width: 470px;
+    }
+  }
+
+
+#footer {
+    background: #eeeeee;
+    padding: 10px 0 10px 0;
+    color: #555555;
+    font-size: 14px;
+    margin-top: 350px;
+  }

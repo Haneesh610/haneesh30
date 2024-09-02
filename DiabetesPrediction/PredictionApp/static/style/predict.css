@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+  }
+  
+  body {
+    background-color: #f7f9ff;
+    overflow: hidden;
+  }
+  
+  /* Navigation Menu */
+  
+  nav {
+    padding: 1.4rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav img {
+    height: 48px;
+  }
+  
+  ul {
+    display: flex;
+    gap: 3rem;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #000000;
+  }
+  
+  li {
+    list-style: none;
+    font-weight: bold;
+  }
+  
+  /* Form Section */
+  .main{
+    position: fixed;
+    top: 160px;
+    left: 300px;
+    width: 550px;
+    background-image: url("{% static 'images/img2.jpg' %}");
+    border-radius: 10px;
+    align-items: center;
+    padding: 5%;
+}
+p{
+    color: rgb(255, 3, 3);
+    font-weight: 900;
+    font-size: 2rem;
+}
+h1{
+    color: rgb(209, 0, 0);
+    font-size: larger;
+    font-weight: bold;
+    justify-content: center;
+}
+input[type=submit]{
+    background-color: burlywood;
+    border: 3px;
+    color: aliceblue;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 15px;
+} 
+  /* Media Query */
+  
+  @media (min-width: 280px) and (max-width: 768px) {
+  
+    nav {
+      padding: 1.4rem 1rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }

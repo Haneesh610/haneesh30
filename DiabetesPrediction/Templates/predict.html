@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict</title>
+    <link rel="stylesheet" href="{% static 'style/predict.css' %}">
+    <style>
+        /* body {
+            background-image: url("{% static 'images/img2.jpg' %}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .main{
+            position: fixed;
+            top: 90px;
+            left: 300px;
+            width: 550px;
+            background-color: antiquewhite;
+            border-radius: 10px;
+            align-items: center;
+            padding: 5%;
+        }
+        p{
+            color: rgb(255, 3, 3);
+            font-weight: 900;
+            font-size: 2rem;
+        }
+        h1{
+            color: rgb(209, 0, 0);
+            font-size: larger;
+            font-weight: bold;
+            justify-content: center;
+        }
+        input[type=submit]{
+            background-color: burlywood;
+            border: 3px;
+            color: aliceblue;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        } */
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img src="{% static 'images/logo.png' %}" alt="logo"/>
+        <a href="#"></a>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'predict' %}">Predict</a></li>
+          <li><a href="{% url 'about' %}">About Us</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </nav>
+
+    <p align="center">Welcome to predict page!</p>
+    <div align="center" class="main">
+        <h1>Please enter the following information:</h1>
+        <form action="result">
+            <table>
+                <tr>
+                    <td align="right">Pregnancies:</td>
+                    <td align="left"><input type="number" name="n1" min="0"></td>
+                </tr>
+                <tr>
+                    <td align="right">Glucose:</td>
+                    <td align="left"><input type="number" name="n2" min="0"></td>
+                </tr>
+                <tr>
+                    <td align="right">Blood Pressure:</td>
+                    <td align="left"><input type="number" name="n3" min="0"></td>
+                </tr>
+                <tr>
+                    <td align="right">Skin Thickness:</td>
+                    <td align="left"><input type="number" name="n4" min="0"></td>
+                </tr>
+                <tr>
+                    <td align="right">Insulin:</td>
+                    <td align="left"><input type="number" name="n5" min="0"></td>
+                </tr>
+                <tr>
+                    <td align="right">BMI:</td>
+                    <td align="left"><input type="number" name="n6" step="any" min="0"></td>
+                </tr>
+                <tr>
+                    <td align="right">Diabetes Pedigree function:</td>
+                    <td align="left"><input type="number" name="n7" step="any" min="0"></td>
+                </tr>
+                <tr>
+                    <td align="right">Age:</td>
+                    <td align="left"><input type="number" name="n8" min="0"></td>
+                </tr>
+            </table>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+        Result:{{result2}}
+    </div>
+</body>
+</html>
