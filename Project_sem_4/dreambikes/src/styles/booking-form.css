@@ -1,0 +1,93 @@
+.booking__form {
+  width: 47.5%;
+}
+
+.booking__form input {
+  padding: 8px 15px;
+  border: 1px solid #7c8a972a;
+  color: #7c8a97;
+  width: 100%;
+}
+
+.booking__form-btn {
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: aliceblue;
+  background: #ee0221;
+  padding: 8px 15px;
+}
+
+.booking__form select,
+.textarea {
+  width: 100%;
+  padding: 10px 15px;
+  color: #7c8a97;
+  border: 1px solid #7c8a972a;
+  border-radius: 4px;
+}
+
+.time__picker::before {
+  content: "Journey Time";
+  color: #7c8a97;
+  margin-right: 0.5rem;
+}
+
+.textarea:focus,
+.booking__form input:focus,
+.booking__form select:focus {
+  outline: none;
+}
+
+/* Styling for Payment Method Heading */
+.payment {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+/* Styling for the Payment Method Radio Buttons */
+.payment-method div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px; /* Adjusted spacing between rows */
+}
+
+.payment-method div input[type="radio"] {
+  margin-right: 9px; /* Spacing between radio button and label */
+}
+
+.payment-method div label {
+  margin-right: 70px; /* Spacing between different payment options */
+  font-size: 15px;
+  color: #555;
+  cursor: pointer;
+  font-weight: 600;
+  color: #000d6b;
+}
+
+/* Hover effect for labels */
+.payment-method div label:hover {
+  color: #007bff;
+}
+
+/* Styling for selected radio button labels */
+.payment-method div input[type="radio"]:checked + label {
+  color: #007bff;
+  font-weight: bold;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .booking__form {
+    width: 100%;
+  }
+
+  .booking__form input,
+  .textarea,
+  .booking__form select {
+    font-size: 0.8rem;
+  }
+}
