@@ -4,101 +4,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Predict</title>
-    <link rel="stylesheet" href="{% static 'style/predict.css' %}">
+    <title>Diabetes Prediction System - Predict</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
-        /* body {
-            background-image: url("{% static 'images/img2.jpg' %}");
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
         }
-        .main{
-            position: fixed;
-            top: 90px;
-            left: 300px;
-            width: 550px;
-            background-color: antiquewhite;
-            border-radius: 10px;
+
+        nav {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            padding: 5%;
+            padding: 1rem 2rem;
+            background-color: #32cd32; /* Navbar background color */
         }
-        p{
-            color: rgb(255, 3, 3);
-            font-weight: 900;
-            font-size: 2rem;
+
+        .navbar-logo {
+            max-height: 50px;
         }
-        h1{
-            color: rgb(209, 0, 0);
-            font-size: larger;
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            display: inline;
+        }
+
+        .navbar-nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
             font-weight: bold;
-            justify-content: center;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
-        input[type=submit]{
-            background-color: burlywood;
-            border: 3px;
-            color: aliceblue;
-            padding: 8px 16px;
+
+        .navbar-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-nav a:hover {
+            color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ff1493;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-container {
+            background: url("{% static 'images/img2.jpg' %}") no-repeat center center;
+            background-size: cover;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        label {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: #32cd32;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            margin-top: 15px;
-        } */
+            margin-left: 2rem;
+        }
+
+        button:hover {
+            background-color: #28a745;
+        }
+
+        footer {
+            background-color: #32cd32;
+            padding: 1rem 0;
+            text-align: center;
+            color: #333;
+            bottom: 0;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .footer-nav {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-nav li {
+            display: inline;
+        }
+
+        .footer-nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .footer-nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
     </style>
 </head>
 <body>
-
     <nav>
-        <img src="{% static 'images/logo.png' %}" alt="logo"/>
-        <a href="#"></a>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="{% url 'predict' %}">Predict</a></li>
-          <li><a href="{% url 'about' %}">About Us</a></li>
-          <li><a href="{% url 'contact' %}">Contact</a></li>
+        <div>
+            <a href="/">
+                <img src="{% static 'images/DiabetesPredictor.png' %}" alt="Logo" class="navbar-logo">
+            </a>
+        </div>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'predict' %}">Predict</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
         </ul>
-      </nav>
+    </nav>
 
-    <p align="center">Welcome to predict page!</p>
-    <div align="center" class="main">
-        <h1>Please enter the following information:</h1>
-        <form action="result">
-            <table>
-                <tr>
-                    <td align="right">Pregnancies:</td>
-                    <td align="left"><input type="number" name="n1" min="0"></td>
-                </tr>
-                <tr>
-                    <td align="right">Glucose:</td>
-                    <td align="left"><input type="number" name="n2" min="0"></td>
-                </tr>
-                <tr>
-                    <td align="right">Blood Pressure:</td>
-                    <td align="left"><input type="number" name="n3" min="0"></td>
-                </tr>
-                <tr>
-                    <td align="right">Skin Thickness:</td>
-                    <td align="left"><input type="number" name="n4" min="0"></td>
-                </tr>
-                <tr>
-                    <td align="right">Insulin:</td>
-                    <td align="left"><input type="number" name="n5" min="0"></td>
-                </tr>
-                <tr>
-                    <td align="right">BMI:</td>
-                    <td align="left"><input type="number" name="n6" step="any" min="0"></td>
-                </tr>
-                <tr>
-                    <td align="right">Diabetes Pedigree function:</td>
-                    <td align="left"><input type="number" name="n7" step="any" min="0"></td>
-                </tr>
-                <tr>
-                    <td align="right">Age:</td>
-                    <td align="left"><input type="number" name="n8" min="0"></td>
-                </tr>
-            </table>
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
-        </form>
-        Result:{{result2}}
-    </div>
+    <section class="container my-5">
+        <h1>Welcome to the Predict Page!</h1>
+        <div class="form-container">
+            <form action="{% url 'result' %}" method="post" id="predict-form">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}">
+                </div>
+                <div class="mb-3">
+                    <label for="pregnancies">Pregnancies:</label>
+                    <input type="number" id="pregnancies" name="n1" min="0" required>
+                </div>
+                <div class="mb-3">
+                    <label for="glucose">Glucose:</label>
+                    <input type="number" id="glucose" name="n2" min="0" required>
+                </div>
+                <div class="mb-3">
+                    <label for="blood_pressure">Blood Pressure:</label>
+                    <input type="number" id="blood_pressure" name="n3" min="0" required>
+                </div>
+                <div class="mb-3">
+                    <label for="skin_thickness">Skin Thickness:</label>
+                    <input type="number" id="skin_thickness" name="n4" min="0" required>
+                </div>
+                <div class="mb-3">
+                    <label for="insulin">Insulin:</label>
+                    <input type="number" id="insulin" name="n5" min="0" required>
+                </div>
+                <div class="mb-3">
+                    <label for="bmi">BMI:</label>
+                    <input type="number" id="bmi" name="n6" step="any" min="0" required>
+                </div>
+                <div class="mb-3">
+                    <label for="pedigree">Diabetes Pedigree Function:</label>
+                    <input type="number" id="pedigree" name="n7" step="any" min="0" required>
+                </div>
+                <div class="mb-3">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="n8" min="0" required>
+                </div>
+                <button type="reset">Reset</button>
+                <button type="submit" name="action" value="show">Show Result</button>
+                <button type="submit" name="action" value="download" id="download">Download Result</button>
+                <p align="center">Result: {{ result2 }}</p>
+
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <ul class="footer-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'predict' %}">Predict</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+        <p>&copy; 2024 Diabetes Prediction System</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <!-- <script>document.getElementById('download').addEventListener('click', function() {
+            document.getElementById('predict-form').reset();
+            });
+    </script> -->
 </body>
 </html>

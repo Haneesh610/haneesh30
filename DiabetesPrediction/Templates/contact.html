@@ -4,38 +4,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'style/contact.css' %}">
+    <title>Diabetes Prediction System - Contact</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fefefe;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #32cd32;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo {
+    max-height: 50px;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav a:hover {
+    color: #f0f0f0;
+}
+
+/* Form container alignment */
+.main {
+    padding: 3rem;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Form alignment fix */
+form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #0080ff;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    padding: 15px;
+    transition: border 0.3s;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: #32cd32;
+    box-shadow: 0 0 5px rgba(50, 205, 50, 0.5);
+}
+
+button.btn-primary {
+    background-color: #32cd32;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+button.btn-primary:hover {
+    background-color: #28a745;
+    transform: translateY(-2px);
+}
+
+/* Contact details styling */
+.contact-details {
+    text-align: center;
+    background-color: #0cf546;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-details h4 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+}
+
+/* Footer styling */
+footer {
+    background-color: #32cd32;
+    padding: 1rem 0;
+    text-align: center;
+    color: white;
+}
+
+.footer-nav {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #f0f0f0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .form-control {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    button.btn-primary {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+    }
+    </style>
 </head>
 <body>
     <nav>
-        <img src="{% static 'images/logo.png' %}" alt="logo"/>
-        <a href="#"></a>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="{% url 'predict' %}">Predict</a></li>
-          <li><a href="{% url 'about' %}">About Us</a></li>
-          <li><a href="{% url 'contact' %}">Contact</a></li>
+        <div>
+            <a href="/">
+                <img src="{% static 'images/DiabetesPredictor.png' %}" alt="Logo" class="navbar-logo">
+            </a>
+        </div>
+        <ul class="navbar-nav ms-auto">
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'predict' %}">Predict</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
-      </nav>
+    </nav>
 
-      <!-- Main Form section -->
+    <section class="container my-5 main">
+        <h2>Contact Us</h2>
+        {% if messages %}
+        <div class="alert alert-info">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="post" action="{% url 'saveEnquiry' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Write here for enquiry"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Contact details with enhanced design -->
+        <div class="contact-details text-center">
+            <h4>Our Contact Details</h4>
+            <div class="contact-info">
+                <p><strong>Email:</strong> contact@diabetespredictor.com</p>
+                <p><strong>Phone:</strong> +91 9999988888</p>
+            </div>
+        </div>
+    </section>
 
-  <main class="main">
-    <form class="form">
-      <h1>Contact Form</h1>
-      <label for="name">Name</label>
-      <input type="text" id="name" placeholder="Enter your name">
+    <footer>
+        <ul class="footer-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'predict' %}">Predict</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+        <p>&copy; 2024 Diabetes Prediction System</p>
+    </footer>
 
-      <label for="email">Email</label>
-      <input type="text" id="email" placeholder="Enter your email">
-
-      <label for="message">Message</label>
-      <textarea placeholder="Enter your message"></textarea>
-
-      <button type="submit" id="form-btn">Submit</button>
-  </form>
-  </main>
-  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 </body>
 </html>

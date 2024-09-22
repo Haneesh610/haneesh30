@@ -1,58 +1,309 @@
+<!-- templates/home.html -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-     -->
+    <title>Diabetes Prediction System - Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #32cd32; /* Navbar background color */
+        }
+
+        .navbar-logo {
+            max-height: 50px;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav li {
+            display: inline;
+        }
+
+        .navbar-nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .navbar-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-nav a:hover {
+            color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .hero-section {
+            background: url('/static/images/diabetes-hero.jpg') no-repeat center center;
+            background-size: cover;
+            border: #333;
+            border-radius: 5px;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            height: 400px;
+        }
+
+        .hero-section h1 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-section .btn {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+        }
+
+        h1 {
+            margin-top: 1.5rem;
+            font-size: xx-large;
+            font-weight: 900;
+            font-size: 3rem;
+            color: rgba(242, 1, 255, 0.777);
+        }
+
+        h2 {
+            margin-top: 1rem;
+            font-size: larger;
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: large;
+            font-weight: 500;
+            font-family: 'Times New Roman', Times, serif;
+            color: black;
+            padding-left: 1rem;
+        }
+
+        .info {
+            margin: auto;
+            text-align: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: 900;
+            font-size: larger;
+        }
+
+        .table-section {
+            margin: 2rem auto;
+            padding: 1rem;
+            max-width: 1000px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgba(105, 105, 105, 0.481);
+            color: rgb(5, 172, 5);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            font-size: larger;
+        }
+
+        th {
+            background-color: #32cd32;
+            color: white;
+        }
+
+        tbody tr:hover {
+            background-color: #fffafa;
+        }
+
+        footer {
+            background-color: #32cd32;
+            padding: 1rem 0;
+            text-align: center;
+            color: #333;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-nav {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-nav li {
+            display: inline;
+        }
+
+        .footer-nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .footer-nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
 </head>
 <body>
-
     <nav>
-      <img src="{% static 'images/logo.png' %}" alt="logo"/>
-        <a href="#"></a>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="{% url 'predict' %}">Predict</a></li>
-          <li><a href="{% url 'about' %}">About Us</a></li>
-          <li><a href="{% url 'contact' %}">Contact</a></li>
+        <div>
+            <a href="/">
+                <img src="{% static 'images/DiabetesPredictor.png' %}" alt="Logo" class="navbar-logo">
+            </a>
+        </div>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'predict' %}">Predict</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
         </ul>
     </nav>
 
-      <main class="hero">
-        <div class="left-hero-section">
-          <img src="{% static 'images/topAngle.png' %}" alt="topAngle">
-          <div class="info-container">
-            <h1>Complete Health <br> Care Solutions for Everyone</h1>
-            <p>Test your diabetes easily anywhere anytime</p>
-            <button>Predict Diabetes
-              <a href="{% url 'predict' %}"></a>
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="display-4">Welcome to Diabetes Prediction System</h1>
+            <p class="lead">Predict your risk of diabetes with our advanced system.</p>
+            <button class="btn btn-light btn-lg">
+                <a href="/predict/" style="text-decoration:none; color:black;">Start Prediction</a>
             </button>
-           
-          </div>
-          <img src="{% static 'images/bottomAngle.png' %}" alt="bottomAngle">
         </div>
-        
-        <!-- Side side hero section -->
-        <div class="right-hero-section">
-          <img src="{% static 'images/greenBox.png' %}" alt="greenBox">
-          <img src="{% static 'images/yellowBox.png' %}" alt="yellowBox">
-          <img src="{% static 'images/doctor.png' %}" alt="doctor-img">
-        </div>
-    
-      </main>
+    </header>
 
-    <footer id="footer">
-      <h2 align="center">DiabetesPredictor</h2>
-      <p align="center">&copy; 2024 Diabetes Prediction System</p>
+    <section class="container about-section my-5">
+        <div class="row">
+            <div class="col-lg-6 info">
+                <h1 align="center">What Is Diabetes?</h1>
+                <p class="container">Diabetes is a condition that happens when your blood sugar (glucose) is too high. It develops when your pancreas doesn’t make enough insulin or any at all, or when your body isn’t responding to the effects of insulin properly. Diabetes affects people of all ages. Most forms of diabetes are chronic (lifelong), and all forms are manageable with medications and/or lifestyle changes.Glucose (sugar) mainly comes from carbohydrates in your food and drinks. It’s your body’s go-to source of energy. Your blood carries glucose to all your body’s cells to use for energy.When glucose is in your bloodstream, it needs help — a “key” — to reach its final destination. This key is insulin (a hormone). If your pancreas isn’t making enough insulin or your body isn’t using it properly, glucose builds up in your bloodstream, causing high blood sugar (hyperglycemia). Over time, having consistently high blood glucose can cause health problems, such as heart disease, nerve damage and eye issues.The technical name for diabetes is diabetes mellitus. Another condition shares the term “diabetes” — diabetes insipidus — but they’re distinct. They share the name “diabetes” because they both cause increased thirst and frequent urination. Diabetes insipidus is much rarer than diabetes mellitus.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="table-section">
+        <h2 align="center" >Diabetes Symptoms and Prevention</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Symptoms</strong></td>
+                    <td>
+                        <ul>
+                            <li>Increased thirst</li>
+                            <li>Frequent urination</li>
+                            <li>Extreme hunger</li>
+                            <li>Unexplained weight loss</li>
+                            <li>Fatigue</li>
+                            <li>Blurred vision</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Prevention</strong></td>
+                    <td>
+                        <ul>
+                            <li>Maintain a healthy weight</li>
+                            <li>Be physically active</li>
+                            <li>Eat a balanced diet</li>
+                            <li>Limit alcohol consumption</li>
+                            <li>Do not smoke</li>
+                            <li>Regularly monitor blood sugar levels</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <ul class="footer-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'predict' %}">Predict</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+        <p>&copy; 2024 Diabetes Prediction System</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 </body>
 </html>

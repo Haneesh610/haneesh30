@@ -1,5 +1,5 @@
 """
-URL configuration for DiabetesPrediction project.
+URL configuration for diabetesprediction project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from PredictionApp import urls
+from predictionapp import urls
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(urls))
