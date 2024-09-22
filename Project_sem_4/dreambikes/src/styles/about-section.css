@@ -1,5 +1,7 @@
 .about__section-item {
   column-gap: 3rem;
+  display: flex; /* Ensure flexbox is used for alignment */
+  flex-wrap: wrap; /* Allow items to wrap if necessary */
 }
 
 .about__section-item p i {
@@ -7,18 +9,22 @@
   font-size: 1.1rem;
 }
 
+.about__img {
+  height: auto; /* Change to auto for responsive height */
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+}
+
 @media only screen and (max-width: 992px) {
   .about__section-content h2 {
     font-size: 1.5rem;
   }
   .about__section-item {
-    column-gap: 3rem;
+    column-gap: 2rem; /* Adjust gap for medium screens */
   }
   .about__section-item p {
-    font-size: 0.6rem;
+    font-size: 0.9rem; /* Adjust font size slightly for readability */
     margin-bottom: 0;
   }
-
   .section__description i {
     font-size: 1.5rem !important;
   }
@@ -27,11 +33,28 @@
 @media only screen and (max-width: 768px) {
   .about__img {
     margin-top: 30px;
+    width: 100%; /* Make image full width on small screens */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .about__section-item {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items for small screens */
+    column-gap: 0; /* Remove column gap for vertical layout */
+    margin-bottom: 20px; /* Add some space between stacked items */
   }
 }
 
 @media only screen and (max-width: 576px) {
   .about__section {
     margin-top: 280px;
+  }
+
+  .about__section-content h2 {
+    font-size: 1.25rem; /* Further reduce font size for very small screens */
+  }
+
+  .about__section-item p {
+    font-size: 0.85rem; /* Slightly smaller text for better fit */
+    text-align: center; /* Center text for small screens */
   }
 }

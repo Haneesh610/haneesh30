@@ -5,22 +5,10 @@ import { Link } from "react-router-dom";
 import "../styles/contact.css";
 
 const socialLinks = [
-  {
-    url: "#",
-    icon: "ri-facebook-line",
-  },
-  {
-    url: "#",
-    icon: "ri-instagram-line",
-  },
-  {
-    url: "#",
-    icon: "ri-linkedin-line",
-  },
-  {
-    url: "#",
-    icon: "ri-twitter-line",
-  },
+  { url: "#",icon: "ri-facebook-line", },
+  { url: "#",icon: "ri-instagram-line", },
+  { url: "#",icon: "ri-linkedin-line", },
+  { url: "#",icon: "ri-twitter-line", },
 ];
 
 const Contact = () => {
@@ -38,12 +26,12 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/contact', formData);
-      alert('Inquiry sent successfully!');
+      await axios.post("http://localhost:5000/contact", formData);
+      alert("Inquiry sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error('Error sending message', error);
-      alert('Error sending message');
+      console.error("Error sending message", error);
+      alert("Error sending message");
     }
   };
 
@@ -55,36 +43,38 @@ const Contact = () => {
             <h6 className="fw-bold mb-4">Inquire Here</h6>
             <Form onSubmit={handleSubmit}>
               <FormGroup className="contact__form">
-                <Input 
-                  type="text" 
-                  name="name" 
-                  placeholder="Your Name" 
-                  value={formData.name} 
-                  onChange={handleChange} 
-                  required 
+                <Input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                 />
               </FormGroup>
               <FormGroup className="contact__form">
-                <Input 
-                  type="email" 
-                  name="email" 
-                  placeholder="Email" 
-                  value={formData.email} 
-                  onChange={handleChange} 
-                  required 
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                 />
               </FormGroup>
               <FormGroup className="contact__form">
-                <Input 
-                  type="textarea" 
-                  name="message" 
-                  placeholder="Message" 
-                  value={formData.message} 
-                  onChange={handleChange} 
-                  required 
+                <Input
+                  type="textarea"
+                  name="message"
+                  placeholder="Message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                 />
               </FormGroup>
-              <button className="contact__btn" type="submit">Send Message</button>
+              <button className="contact__btn" type="submit">
+                Send Message
+              </button>
             </Form>
           </Col>
           <Col lg="5" md="5">
@@ -97,11 +87,7 @@ const Contact = () => {
               <h6 className="fw-bold mt-4">Follow Us</h6>
               <div className="d-flex align-items-center gap-4 mt-3">
                 {socialLinks.map((item, index) => (
-                  <Link
-                    to={item.url}
-                    key={index}
-                    className="social__link-icon"
-                  >
+                  <Link to={item.url} key={index} className="social__link-icon">
                     <i className={item.icon}></i>
                   </Link>
                 ))}

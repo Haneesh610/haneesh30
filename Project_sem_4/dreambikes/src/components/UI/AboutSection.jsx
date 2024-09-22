@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/about-section.css";
-import aboutImg from "../../assets/all-images/ride.jpg";
+import aboutImg from "../../assets/all-images/bike.jpg";
 
 const AboutSection = ({ aboutClass }) => {
   return (
@@ -10,9 +10,8 @@ const AboutSection = ({ aboutClass }) => {
       style={
         aboutClass === "aboutPage"
           ? { marginTop: "0px" }
-          : { marginTop: "20px" }
-      }
-    >
+          : { marginTop: "20px" }}>
+            
       <Container>
         <Row>
           <Col lg="6" md="6">

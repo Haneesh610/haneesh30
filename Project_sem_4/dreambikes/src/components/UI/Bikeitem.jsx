@@ -6,6 +6,10 @@ import "../../styles/bike-item.css";
 const BikeItem = (props) => {
   const { imgUrl, bikeName, price } = props.item;
 
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <Col lg="4" md="4" sm="6" className="mb-5">
       <div className="bike__item">
@@ -19,25 +23,10 @@ const BikeItem = (props) => {
             {price}.00 <span>/ Day</span>
           </h6>
 
-          <div className="bike__item-info d-flex align-items-center justify-content-between mt-3 mb-4">
-            <span className=" d-flex align-items-center gap-1">
-              <i class="ri-motorbike-line"></i>
-            </span>
-            <span className=" d-flex align-items-center gap-1">
-              <i class="ri-settings-2-line"></i>
-            </span>
-            <span className=" d-flex align-items-center gap-1">
-              <i class="ri-timer-flash-line"></i>
-            </span>
-          </div>
-
-          <button className=" w-50 bike__item-btn bike__btn-rent">
-            <Link to={`/bikes/${bikeName}`}>Rent</Link>
+          <button className=" w-100 bike__item-btn bike__btn-rent">
+            <Link to={`/bikes/${bikeName}`} onClick={handleClick}>Rent</Link>
           </button>
 
-          <button className=" w-50 bike__item-btn bike__btn-details">
-            <Link to={`/bikes/${bikeName}`}>Details</Link>
-          </button>
         </div>
       </div>
     </Col>

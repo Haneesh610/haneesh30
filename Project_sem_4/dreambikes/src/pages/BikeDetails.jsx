@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
-
+import React, { useContext } from "react";
 import BikeData from "../assets/data/BikesData";
 import { Container, Row, Col } from "reactstrap";
 import Helmet from "../components/Helmet/Helmet";
-import { useParams } from "react-router-dom";
-import Bookingform from "../components/UI/Bookingform";
+import { useParams, Link } from "react-router-dom";
+import BookingForm from "../components/UI/Bookingform";
+import { AuthContext } from "../auth/Authcontext";
 
 const BikeDetails = () => {
   const { slug } = useParams();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const singleBikeItem = BikeData.find((item) => item.bikeName === slug);
 
-  useEffect(() => {
+  const handleClick = () => {
     window.scrollTo(0, 0);
-  }, [singleBikeItem]);
+  };
 
   return (
     <Helmet title={singleBikeItem.bikeName}>
@@ -21,56 +22,43 @@ const BikeDetails = () => {
         <Container>
           <Row>
             <Col lg="6">
-              <img src={singleBikeItem.imgUrl} alt="" className="w-100" />
+              <img src={singleBikeItem.imgUrl} alt={singleBikeItem.bikeName} className="w-100" />
             </Col>
 
             <Col lg="6">
               <div className="bike__info">
                 <h2 className="section__title">{singleBikeItem.bikeName}</h2>
 
-                <div className=" d-flex align-items-center gap-5 mb-4 mt-3">
-                  <h6 className="rent__price fw-bold fs-4">
-                    {singleBikeItem.price}.00 / Day
-                  </h6>
-
-                  <span className=" d-flex align-items-center gap-2">
-                    ({singleBikeItem.rating} ratings)
+                <div className="d-flex align-items-center gap-5 mb-4 mt-3">
+                  <h6 className="rent__price fw-bold fs-4">₹{singleBikeItem.price}.00</h6>
+                  <span className="d-flex align-items-center gap-2">
+                    <span style={{ color: "#f9a826" }}>
+                      <i className="ri-star-s-fill"></i>
+                    </span>
+                    {singleBikeItem.rating}
                   </span>
                 </div>
 
                 <p className="section__description">
-                  {singleBikeItem.description}
+                  <h3>
+                    {singleBikeItem.description}
+                  </h3>
                 </p>
-
-                <div
-                  className=" d-flex align-items-center mt-3"
-                  style={{ columnGap: "4rem" }}
-                >
-                </div>
-
-                <div
-                  className=" d-flex align-items-center mt-3"
-                  style={{ columnGap: "2.8rem" }}
-                >
-
-                  <span className=" d-flex align-items-center gap-1 section__description">
-                    <i
-                      class="ri-building-2-line"
-                      style={{ color: "#f9a826" }}
-                    ></i>{" "}
-                    {singleBikeItem.brand}
-                  </span>
-                </div>
               </div>
             </Col>
+          </Row>
 
-            <Col lg="12" className="mt-5">
-              <div className="booking-info mt-5 ">
-                <h5 className="mb-4 fw-bold ">Booking Information</h5>
-                <Bookingform />
-              </div>
+          <Row>
+            <Col>
+              {isLoggedIn ? (
+                <BookingForm bikeName={singleBikeItem.bikeName} />
+              ) : (
+                <div>
+                  <p>You must be logged in to book this bike.</p>
+                  <Link to="/login" onClick={handleClick}>Login</Link> or <Link to="/signup" onClick={handleClick}>Sign Up</Link>
+                </div>
+              )}
             </Col>
-
           </Row>
         </Container>
       </section>

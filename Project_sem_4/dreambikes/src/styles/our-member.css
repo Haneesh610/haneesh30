@@ -1,20 +1,40 @@
+.single__member {
+  text-align: center; /* Center text */
+}
+
+.single__member-img {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center the image */
+  align-items: center; /* Align items vertically */
+}
+
+.member-img {
+  width: 100px; /* Increased width */
+  height: 100px; /* Increased height */
+  object-fit: cover; /* Ensure the image covers the area */
+  border-radius: 50%; /* Make images circular */
+}
+
 @media only screen and (max-width: 768px) {
-  .testimonial p {
-    font-size: 0.8rem;
-    line-height: 1.5rem;
+  .single__member h6 {
+    font-size: 1rem; /* Adjust heading size */
   }
 
-  .testimonial h6 {
-    font-size: 1rem;
+  .single__member p {
+    font-size: 0.8rem; /* Adjust paragraph size */
   }
 }
 
 @media only screen and (max-width: 576px) {
-  .testimonial img {
-    width: 60px !important;
-    height: 60px !important;
-    object-fit: cover;
-    display: flex;
-    flex-direction: column;
+  .single__member-img {
+    margin: 0 auto; /* Center the image container */
+  }
+
+  .single__member h6 {
+    font-size: 0.9rem; /* Smaller text for small screens */
+  }
+
+  .single__member p {
+    font-size: 0.75rem; /* Further reduce paragraph size */
   }
 }

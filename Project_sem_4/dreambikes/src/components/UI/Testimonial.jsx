@@ -81,6 +81,21 @@ const Testimonial = () => {
           </div>
         </div>
       </div>
+
+      <div className="testimonial py-4 px-3">
+        <p className="section__description">
+        Renting a bike here transformed my trip! With the wind in my hair and stunning views around every corner, I felt like I was on an adventure in a movie. Truly unforgettable!"
+        </p>
+
+        <div className="mt-3 d-flex align-items-center gap-4">
+          <img src={c1} alt="" className="w-25 h-25 rounded-2" />
+
+          <div>
+            <h6 className="mb-0 mt-3">Ravi Kumar</h6>
+            <p className="section__description">Customer</p>
+          </div>
+        </div>
+      </div>
     </Slider>
   );
 };

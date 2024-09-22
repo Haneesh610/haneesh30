@@ -1,6 +1,6 @@
 .bike__item {
-  border: 1px solid #7c8a9736;
-  padding: 20px;
+  border: 3px solid #000000;
+  padding: 10px;
   border-radius: 5px;
 }
 
@@ -9,11 +9,6 @@
   justify-content:center;
   flex-direction: column;
   align-items: center;
-}
-
-.bike__item-info span i {
-  color: #f9a826;
-  font-size: 1.1rem;
 }
 
 .bike__item-btn {
@@ -32,11 +27,6 @@
 
 .bike__item-btn a:hover {
   color: #fff;
-}
-
-.bike__btn-details {
-  background: #f9a826;
-  border-radius: 0px 4px 4px 0px;
 }
 
 .bike__btn-rent {
@@ -63,15 +53,6 @@
     margin-top: 10px;
   }
 
-  .bike__item-info {
-    flex-wrap: wrap;
-  }
-
-  .bike__item-info span {
-    font-size: 0.8rem;
-    justify-content: space-between;
-  }
-
   .bike__item-btn {
     padding: 5px 10px;
     font-size: 0.9rem;
@@ -84,14 +65,6 @@
   }
 
   .bike__item h6 {
-    font-size: 0.9rem;
-  }
-
-  .bike__item-info span {
-    font-size: 0.7rem;
-  }
-
-  .bike__item-info span i {
     font-size: 0.9rem;
   }
 

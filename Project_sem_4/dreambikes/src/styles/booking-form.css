@@ -1,12 +1,16 @@
 .booking__form {
   width: 47.5%;
+  margin: auto; /* Center the form */
 }
 
-.booking__form input {
+.booking__form input,
+.booking__form select,
+.textarea {
   padding: 8px 15px;
   border: 1px solid #7c8a972a;
   color: #7c8a97;
   width: 100%;
+  border-radius: 4px; /* Consistent border-radius */
 }
 
 .booking__form-btn {
@@ -16,27 +20,14 @@
   color: aliceblue;
   background: #ee0221;
   padding: 8px 15px;
+  cursor: pointer; /* Change cursor to pointer */
 }
 
-.booking__form select,
-.textarea {
-  width: 100%;
-  padding: 10px 15px;
-  color: #7c8a97;
-  border: 1px solid #7c8a972a;
-  border-radius: 4px;
-}
-
-.time__picker::before {
-  content: "Journey Time";
-  color: #7c8a97;
-  margin-right: 0.5rem;
-}
-
-.textarea:focus,
 .booking__form input:focus,
-.booking__form select:focus {
+.booking__form select:focus,
+.textarea:focus {
   outline: none;
+  border-color: #007bff; /* Highlight border on focus */
 }
 
 /* Styling for Payment Method Heading */
@@ -60,7 +51,7 @@
 }
 
 .payment-method div label {
-  margin-right: 70px; /* Spacing between different payment options */
+  margin-right: 20px; /* Adjusted spacing between different payment options */
   font-size: 15px;
   color: #555;
   cursor: pointer;
@@ -79,7 +70,7 @@
   font-weight: bold;
 }
 
-
+/* Responsive design */
 @media only screen and (max-width: 768px) {
   .booking__form {
     width: 100%;
