@@ -1,0 +1,254 @@
+.header {
+  font-weight: bold;
+  position: relative;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgb(148, 153, 211);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  position: sticky;
+  border: 1px solid black;
+}
+
+.navbar-logo img {
+  width: 60px;
+  height: 60px;
+}
+
+.logo {
+  color: rgb(222, 149, 13);
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  margin-left: 250px;
+}
+
+.navbar-links a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: black;
+  font-size: x-large;
+  position: relative;
+}
+
+.navbar-links a:hover {
+  color: wheat;
+}
+
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  transition: width 0.5s ease;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+
+.navbar_active {
+  color: red;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 300px;
+
+}
+
+.cart-count {
+  margin-right: -5px;
+  text-align: center;
+  justify-content: center;
+}
+
+.cart-div {
+  float: right;
+  margin: 10px;
+  position: relative;
+}
+
+.cart-icon {
+  margin-right: 10px;
+}
+
+.cart-div img {
+  width: 30px;
+  top: -3.5px;
+}
+
+.cart-div span {
+  background-color: rgb(0, 0, 0);
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  position: absolute;
+  top: -4.5px;
+  right: -10px;
+  color: #fff;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  padding: 5px 10px;
+  transition: width 0.4s ease-in-out;
+  width: 20px;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  margin-right: 8px;
+}
+
+.search-container .search-icon {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.search-container input {
+  width: 0;
+  border: none;
+  outline: none;
+  padding: 0;
+  opacity: 0;
+  transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out,
+    padding 0.3s ease-in-out;
+  font-size: 16px;
+}
+
+.search-container.active {
+  width: 200px;
+}
+
+.search-container.active input {
+  width: 100%;
+  opacity: 1;
+  padding: 5px 10px;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgb(210, 203, 203);
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #181717;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.search-result-item:hover {
+  background-color: #f0f0f0;
+}
+
+.result-product-image {
+  width: 40px;
+  height: 40px;
+  object-fit: fill;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.product-details {
+  flex: 1;
+}
+
+.product-name {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #181717;
+}
+
+.product-description {
+  font-size: 12px;
+  color: #777;
+}
+
+.no-results {
+  padding: 10px;
+  color: #777;
+  text-align: center;
+}
+
+.hamburger-menu {
+  position: relative;
+  cursor: pointer;
+  margin-left: 0px;
+  margin-top: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 165px;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button{
+  display: flex;
+  gap: 3px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.order-history{
+  display: flex;
+  gap: 3px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdown-menu {
+  z-index: 1000;
+}

@@ -1,0 +1,118 @@
+.cart-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  min-height: calc(100vh - 85.5px - 73.46px);
+}
+
+.cart-page h1 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.cart-page p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-table thead {
+  background: linear-gradient(to right, lightgreen, darkgreen);
+}
+.cart-table th {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
+  font-size: 16px;
+  width: 50px;
+  padding: 5px;
+  text-align: center;
+  max-width: 60px;
+  min-width: 50px;
+  overflow: hidden;
+}
+.cart-table td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
+  font-size: 14px;
+  width: 50px;
+  padding: 5px;
+  text-align: center;
+  max-width: 60px;
+  min-width: 50px;
+  overflow: hidden;
+}
+
+.cart-table td img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+}
+
+.cart-table .remove-btn {
+  padding: 5px 10px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: -10px;
+}
+
+.cart-table input {
+  width: 50px;
+  padding: 5px;
+  text-align: center;
+  max-width: 60px;
+  min-width: 50px;
+  overflow: hidden;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(224, 19, 19, 0.1);
+  border: 2px solid black;
+}
+
+.cart-summary h2 {
+  margin-bottom: 10px;
+}
+
+.cart-summary .summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.cart-summary button {
+  width: 1310px;
+  padding: 10px;
+  background: linear-gradient(to left, lightgreen, darkgreen);
+  color: rgb(0, 0, 0);
+  border: 2px solid black;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.cart-summary button:hover {
+  transform: scale(1.01);
+}
+
+.cart-summary .free-shipping .tax {
+  color: green;
+  font-weight: bold;
+}
