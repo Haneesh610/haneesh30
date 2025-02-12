@@ -13,24 +13,6 @@ import {
   FETCH_ADMIN_DATA,
 } from "./constant";
 
-const clearStaleLocalStorage = () => {
-  const users = JSON.parse(localStorage.getItem("users"));
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  const cart = JSON.parse(localStorage.getItem("cart"));
-
-  if (!users || !Array.isArray(users)) {
-    localStorage.removeItem("users");
-  }
-  if (!currentUser || typeof currentUser !== "object") {
-    localStorage.removeItem("currentUser");
-  }
-  if (!cart || !Array.isArray(cart)) {
-    localStorage.removeItem("cart");
-  }
-};
-
-clearStaleLocalStorage();
-
 const initialState = {
   users: JSON.parse(localStorage.getItem("users")) || [],
   currentUser: JSON.parse(localStorage.getItem("currentUser")) || null,
