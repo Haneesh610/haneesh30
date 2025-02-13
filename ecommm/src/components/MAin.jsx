@@ -149,9 +149,11 @@ const Main = () => {
                         Item is in the cart
                       </p>
                     ) : currentUser ? (
-                      <button onClick={() => handleAddToCart(item)}>
-                        Add to Cart
-                      </button>
+                      currentUser.role !== "admin" ? (
+                        <button onClick={() => handleAddToCart(item)}>
+                          Add to Cart
+                        </button>
+                      ) : null
                     ) : (
                       <p>Please log in to add to cart</p>
                     )}

@@ -65,7 +65,6 @@ const Checkout = () => {
     handleOrder();
   };
 
-
   if (cartItems.length === 0) {
     return (
       <div className="empty-cart">

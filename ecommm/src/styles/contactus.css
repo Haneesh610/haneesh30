@@ -84,7 +84,7 @@
 }
 
 .contact-form textarea {
-  resize: vertical;
+  resize:none;
 }
 
 .submit-button {
@@ -103,8 +103,20 @@
   background-color: #0056b3;
 }
 
+.map-div{
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 20px;
+}
+
 .map-container {
-  margin-top: 40px;
+  margin-top: 30px;
+  box-shadow: 0 4px 8px rgba(23, 37, 196, 0.73);
+  transition: transform 0.3s ease;
+}
+
+.map-container:hover {
+  transform: scale(1.05)
 }
 
 .map-container h2 {

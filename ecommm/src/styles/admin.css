@@ -21,9 +21,9 @@
 }
 
 .stat-card {
-  background-color: white;
+  background-color: rgba(35, 78, 123, 0.222);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 10px 10px rgba(4, 97, 211, 0.264);
   text-align: center;
   flex: 1;
@@ -31,6 +31,7 @@
   max-width: 300px;
   transition: transform 0.3s ease;
   margin-bottom: 30px;
+  border: 1.5px solid black;
 }
 
 .stat-card:hover {
@@ -46,11 +47,11 @@
 .stat-card p {
   font-size: 1.7rem;
   font-weight: bold;
-  color: #4caf50;
+  color: #25d22a;
 }
 
 .stat-icon {
-  color: rgb(55, 184, 191);
+  color: rgb(7, 72, 162);
 }
 
 .access-denied {
@@ -69,6 +70,7 @@
   width: 900px;
   height: 500px;
   margin: 0 auto;
+  border: 1px solid black;
 }
 
 .payment-mode-chart canvas {

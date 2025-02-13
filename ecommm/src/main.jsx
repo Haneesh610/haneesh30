@@ -22,7 +22,7 @@ createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <BrowserRouter>
       <ScrollToTop/>
-      <ToastContainer position="top-center" autoClose={700} />
+      <ToastContainer position="top-center" autoClose={500} />
         <App />
         </BrowserRouter>
     </Provider>

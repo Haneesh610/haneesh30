@@ -9,6 +9,5 @@ export const LOGIN_USER = "LOGIN_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
 export const EMPTY_CART = "EMPTY_CART";
 export const ORDER_HISTORY = "ORDER_HISTORY";
-
 export const ADMIN_LOGIN = "ADMIN_LOGIN";
 export const FETCH_ADMIN_DATA = "FETCH_ADMIN_DATA";

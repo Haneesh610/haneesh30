@@ -101,7 +101,6 @@ const Header = () => {
             <img src="/logo-transparent-png.png" alt="Logo" />
           </Link>
         </div>
-
         <div className="navbar-links">
           <Link to="/product" className="navbar-item">
             Products
@@ -160,24 +159,27 @@ const Header = () => {
             )}
           </div>
 
-          <div className="cart-div">
-            <span className="cart-count">{cartCount}</span>
-            {currentUser ? (
-              <Link to="/cart" className="cart-icon">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
-                  alt="Cart"
-                />
-              </Link>
-            ) : (
-              <div onClick={handleCartClick} className="cart-icon">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
-                  alt="Cart"
-                />
-              </div>
-            )}
-          </div>
+          {/* Hide Cart icon if user is admin */}
+          {currentUser && currentUser.role !== "admin" && (
+            <div className="cart-div">
+              <span className="cart-count">{cartCount}</span>
+              {currentUser ? (
+                <Link to="/cart" className="cart-icon">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+                    alt="Cart"
+                  />
+                </Link>
+              ) : (
+                <div onClick={handleCartClick} className="cart-icon">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+                    alt="Cart"
+                  />
+                </div>
+              )}
+            </div>
+          )}
 
           <div ref={dropdownRef} className="hamburger-menu">
             <GiHamburgerMenu

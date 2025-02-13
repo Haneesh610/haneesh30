@@ -33,7 +33,6 @@ export const productsReducer = (state = initialState, action) => {
         (item) => item.id === action.payload.id
       );
       let updatedCart;
-
       if (existingItem) {
         updatedCart = state.cart.map((item) =>
           item.id === action.payload.id
@@ -52,7 +51,6 @@ export const productsReducer = (state = initialState, action) => {
         );
         localStorage.setItem("cart", JSON.stringify(updatedCart));
         localStorage.setItem("users", JSON.stringify(updatedUsersAdd));
-
         return {
           ...state,
           users: updatedUsersAdd,

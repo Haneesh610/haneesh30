@@ -30,7 +30,6 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
-    console.log("productId from URL:", productId);
     const foundProduct = products.find(
       (item) => item.id === parseInt(productId)
     );
@@ -78,27 +77,27 @@ const ProductDetails = () => {
               {product.reviews?.map((review, index) => (
                 <li key={index}>
                   <p>
-                    <strong>{review.reviewerName}</strong>: {review.comment}
+                    <strong>{review.name}:</strong> {review.comment}
                   </p>
-                  <p>Rating: {review.rating}/5</p>
+                  <p>Rating: {review.rating}</p>
                 </li>
               ))}
             </ul>
-            {isProductInCart && (
-              <p className="product-in-cart-message">
-                Item is in the cart!
-              </p>
-            )}
-            {!isProductInCart && (
-              <div className="button-container-pd">
-                {currentUser ? (
-                  <button onClick={() => handleAddToCart(product)}>
-                    Add to Cart
+            {currentUser ? (
+              currentUser.role !== "admin" ? (
+                <div className="button-container-pd">
+                  <button
+                    disabled={isProductInCart}
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    {isProductInCart ? "Item in Cart" : "Add to Cart"}
                   </button>
-                ) : (
-                  <p>Please log in to add to cart</p>
-                )}
-              </div>
+                </div>
+              ) : (
+                <p>You are an admin, so you cannot add to cart</p>
+              )
+            ) : (
+              <p>Please log in to add to cart</p>
             )}
           </div>
         </div>
