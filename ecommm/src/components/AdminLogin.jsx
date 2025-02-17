@@ -22,6 +22,13 @@ const AdminLogin = () => {
   };
 
   useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (storedUser && storedUser.role === "admin") {
+      navigate("/admin");
+    }
+  }, [navigate]);
+  
+  useEffect(() => {
     if (error) {
       toast.error("Invalid Credentials");
     }
@@ -33,7 +40,9 @@ const AdminLogin = () => {
 
   return (
     <div className="auth-container">
-      <h2>Admin Login</h2>
+      <h2>Admin Login
+        <img src="./user-gear.png" alt="" />
+      </h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

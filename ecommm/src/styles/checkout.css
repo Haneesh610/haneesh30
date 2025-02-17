@@ -11,6 +11,13 @@
   color: #333;
 }
 
+.checkout-container img{
+  height: 40px;
+  width: 40px;
+  margin-bottom: -1px;
+  margin-left: 0px;
+}
+
 .checkout-content {
   display: flex;
   justify-content: space-between;
@@ -40,7 +47,7 @@
 
 .cart-items {
   max-height: 400px;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 .cart-item {
@@ -48,6 +55,7 @@
   align-items: center;
   margin-bottom: 15px;
   padding: 10px;
+  max-width: 530px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 5px 4px rgba(180, 17, 213, 0.175);
@@ -126,6 +134,13 @@
   margin-top: 20px;
 }
 
+.checkout-form img {
+  height: 30px;
+  width: 30px;
+  margin-bottom: -8px;
+  margin-left: 5px;
+}
+
 .form-group {
   margin-bottom: 25px;
 }
@@ -155,6 +170,16 @@
   border-radius: 8px;
   border: 1px solid #ccc;
   box-sizing: border-box;
+}
+
+.form-input-method{
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-top: 10px;
 }
 
 .form-input:focus {
@@ -235,6 +260,30 @@
   border-radius: 50%;
 }
 
+.payment-option input[type="text"] {
+  display: block;
+  margin-top: 10px;
+  padding: 8px;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.payment-option input[type="text"]:focus {
+  border-color: #2ecc71;
+}
+
+.payment-option input[type="radio"]:checked + label:before {
+  background-color: #2ecc71; /* Green for checked radio */
+  border-color: #27ae60; /* Border color when checked */
+}
+
+.payment-option input[type="radio"] {
+  margin-right: 5px;
+}
+
+
 .checkout-form button {
   width: 100%;
   padding: 12px;
@@ -245,7 +294,7 @@
   border-radius: 8px;
   cursor: pointer;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .checkout-form button:hover {

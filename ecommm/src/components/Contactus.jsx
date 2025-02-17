@@ -6,7 +6,9 @@ const Contact = () => {
   return (
     <>
       <div className="contact-page">
-        <h1>Contact Us</h1>
+        <h1>Contact Us
+          <img src="./contact.gif" alt="" />
+        </h1>
         <p>
           We'd love to hear from you! Reach out to us for any questions,
           feedback, or support.
@@ -14,7 +16,9 @@ const Contact = () => {
 
         <div className="contact-container">
           <div className="contact-info">
-            <h2>Our Office</h2>
+            <h2>Our Office
+              <img src="./building.gif"/>
+            </h2>
             <p>
               <strong>Address:</strong>Wall Street 2, B/h Jungle Bhookh
               Restaurant, A-707, Nr, Ellisbridge, Ahmedabad, Gujarat 380006
@@ -35,7 +39,9 @@ const Contact = () => {
           </div>
 
           <div className="contact-form">
-            <h2>Send Us a Message</h2>
+            <h2>Send Us a Message
+              <img src="./message.gif" alt="" />
+            </h2>
             <form>
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -75,7 +81,9 @@ const Contact = () => {
         </div>
 
         <div className="map-div">
-          <h2>Find Us on the Map</h2>
+          <h2>Locate Us 
+            <img src="./travel.gif" />
+          </h2>
           <div className="map-container">
             <iframe
               title="Office Location"

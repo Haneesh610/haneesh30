@@ -72,7 +72,9 @@ const ProductDetails = () => {
             <p>
               <strong>Availability:</strong> {product.availabilityStatus}
             </p>
-            <h3>Reviews</h3>
+              {/* <img src="./reviews.png" /> */}
+            <h3>Reviews
+            </h3>
             <ul>
               {product.reviews?.map((review, index) => (
                 <li key={index}>

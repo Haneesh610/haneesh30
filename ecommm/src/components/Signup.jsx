@@ -34,7 +34,9 @@ const Signup = () => {
 
   return (
     <div className="auth-container">
-      <h2>Sign Up</h2>
+      <h2>Sign Up
+        <img src="./add-user.png" alt="" />
+      </h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

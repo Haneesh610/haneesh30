@@ -7,7 +7,9 @@ const About = () => {
     <>
       <div className="about-container">
         <div className="about-header">
-          <h1>About Us</h1>
+          <h1>About Us
+            <img src="./about.png" alt="" />
+          </h1>
         </div>
 
         <div className="about-content">
@@ -32,7 +34,9 @@ const About = () => {
 
         <div className="about-mission-motto">
           <div className="mission">
-            <h2>Our Mission</h2>
+            <h2>Our Mission
+              <img src="./target.png" />
+            </h2>
             <p>
               At <strong>IndiaMart</strong>, we are committed to delivering
               quality products that not only meet but exceed our customers'
@@ -41,7 +45,9 @@ const About = () => {
             </p>
           </div>
           <div className="motto">
-            <h2>Our Motto</h2>
+            <h2>Our Motto
+              <img src="./megaphone.png" />
+            </h2>
             <p>
               "Quality over Quantity, Sustainability over Profit" – We believe
               in creating lasting relationships with our customers while

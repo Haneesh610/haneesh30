@@ -11,7 +11,9 @@ const OrderHistory = () => {
   return (
     <>
       <div className="orderhistory">
-        <h1>Order History</h1>
+        <h1>
+        <img src="./order-history.png"/>Order History
+        </h1>
         {orders.length === 0 ? (
           <p>No orders found.</p>
         ) : (

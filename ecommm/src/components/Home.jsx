@@ -43,45 +43,143 @@ export default function Home() {
   };
 
   const featuredProducts = products.slice(0, 11);
-  const categories = ["fragrances", "furniture", "groceries", "beauty"];
 
   return (
     <>
       <div className="home-main-container">
-        <h1>Welcome to Our Store</h1>
+        <div className="home-top">
+          <h1>
+            Welcome to Our Store
+            <img src="./shopping.png" alt="shopping" />
+          </h1>
+        </div>
 
         <section className="hero-section">
           <div className="hero-content">
             <h2>Discover Amazing Products</h2>
             <p>Explore our curated collection of premium items</p>
             <Link to="/product" className="cta-button">
-              Shop Now
+              <img src="./shop-now(1).png" alt="" />
             </Link>
           </div>
         </section>
 
         <section className="category-section">
-          <h3>Shop by Category</h3>
+          <div className="category-header">
+            <h3>
+              Browse by Category
+              <img src="./list.gif" alt="category-icon" />
+            </h3>
+          </div>
           <div className="category-grid">
-            {categories.map((category) => (
-              <Link
-                to={`/product?category=${category}`}
-                key={category}
-                className="category-card"
-              >
+            <div className="category-card">
+              <Link to="/product?category=fragrances">
                 <div className="category-content">
-                  <h4>
-                    {category.charAt(0).toUpperCase() + category.slice(1)}
-                  </h4>
+                  <img
+                    src="./perfume.gif"
+                    className="category-image"
+                    alt="fragrances"
+                  />
+                  <h4>Fragrances</h4>
                   <p>Explore collection</p>
                 </div>
               </Link>
-            ))}
+            </div>
+            <div className="category-card">
+              <Link to="/product?category=furniture">
+                <div className="category-content">
+                  <img
+                    src="./armchair.gif"
+                    className="category-image"
+                    alt="furniture"
+                  />
+                  <h4>Furniture</h4>
+                  <p>Explore collection</p>
+                </div>
+              </Link>
+            </div>
+            <div className="category-card">
+              <Link to="/product?category=groceries">
+                <div className="category-content">
+                  <img
+                    src="./basket.gif"
+                    className="category-image"
+                    alt="groceries"
+                  />
+                  <h4>Groceries</h4>
+                  <p>Explore collection</p>
+                </div>
+              </Link>
+            </div>
+            <div className="category-card">
+              <Link to="/product?category=beauty">
+                <div className="category-content">
+                  <img
+                    src="./makeup.gif"
+                    className="category-image"
+                    alt="beauty"
+                  />
+                  <h4>Beauty</h4>
+                  <p>Explore collection</p>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="whychooseus-section">
+          <div className="whychooseus-header">
+            <h3>
+              Why Choose Us
+              <img src="./shrug.png" alt="" />
+            </h3>
+          </div>
+          <div className="whychooseus-grid">
+            <div className="whychooseus-card">
+              <div className="whychooseus-content">
+                <img
+                  src="./credit-card.gif"
+                  className="whychooseus-image"
+                  alt="fragrances"
+                />
+                <h4>Secure Payment</h4>
+              </div>
+            </div>
+            <div className="whychooseus-card">
+              <div className="whychooseus-content">
+                <img
+                  src="./fast-delivery.gif"
+                  className="whychooseus-image"
+                />
+                <h4>Fast Delivery</h4>
+              </div>
+            </div>
+            <div className="whychooseus-card">
+              <div className="whychooseus-content">
+                <img
+                  src="./return-of-investment.gif"
+                  className="whychooseus-image"
+                />
+                <h4>30 Days Return</h4>
+              </div>
+            </div>
+            <div className="whychooseus-card">
+              <div className="whychooseus-content">
+                <img
+                  src="./phone.gif"
+                  className="whychooseus-image"
+                />
+                <h4>24/7 Support</h4>
+              </div>
+            </div>
           </div>
         </section>
 
         <section className="carousel-section">
-          <h3>Featured Products</h3>
+          <h3 className="carousel-header">
+            Featured Products 
+            <img src="./fire.gif" alt="" />
+          </h3>
           <Slider {...carouselSettings}>
             {featuredProducts.map((product) => (
               <div key={product.id} className="carousel-item">
@@ -90,14 +188,14 @@ export default function Home() {
                   <h4>{product.title}</h4>
                   <p>Price: ₹{(product.price * 15).toFixed(2)}</p>
                   <Link to={`/product/${product.id}`} className="view-details">
-                    View Details
+                    Details
+                    <img src="./file.png" />
                   </Link>
                 </div>
               </div>
             ))}
           </Slider>
         </section>
-
       </div>
       <Footer />
     </>

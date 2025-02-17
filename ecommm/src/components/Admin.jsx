@@ -45,7 +45,9 @@ const Admin = () => {
   return (
     <>
       <div className="admin-container">
-      <h2 className="admin-title">Admin Dashboard</h2>
+      <h2 className="admin-title">Admin Dashboard
+        <img src="./dashboard.png" alt="" />
+      </h2>
       <div className="admin-stats">
         <div className="stat-card">
           <FaUsers className="stat-icon" size={40} />
@@ -69,7 +71,9 @@ const Admin = () => {
         </div>
       </div>
       <div className="payment-mode-chart">
-        <h3>Payment Mode Distribution</h3>
+        <h3>Payment Mode Distribution
+          <img src="./analytics.gif" alt="" />
+        </h3>
         <Bar data={chartData} options={{ responsive: true }} />
       </div>
     </div>

@@ -5,6 +5,14 @@
   min-height: 100vh;
 }
 
+.admin-container img{
+  width: 45px;
+  height: 45px;
+  margin-right: 5px;
+  margin-left: 8px;
+  margin-bottom: -5px;
+}
+
 .admin-title {
   text-align: center;
   font-size: 2rem;
@@ -68,9 +76,21 @@
   box-shadow: 0 4px 8px rgba(9, 109, 232, 0.659);
   text-align: center;
   width: 900px;
-  height: 500px;
+  height: 550px;
   margin: 0 auto;
   border: 1px solid black;
+}
+
+.payment-mode-chart img{
+  height: 70px;
+  width: 70px;
+  margin-bottom: -10px;
+}
+
+.payment-mode-chart h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .payment-mode-chart canvas {

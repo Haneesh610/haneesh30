@@ -44,6 +44,13 @@
   color: #333;
 }
 
+.product-info img{
+  height: 20px;
+  width: 20px;
+  margin-bottom: -3px;
+  margin-left: 3px;
+}
+
 .product-description {
   font-size: 1.2rem;
   margin-bottom: 15px;

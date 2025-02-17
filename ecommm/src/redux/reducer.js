@@ -235,6 +235,7 @@ export const productsReducer = (state = initialState, action) => {
         id === adminCredentials.id &&
         password === adminCredentials.password
       ) {
+        localStorage.setItem("currentUser",JSON.stringify(adminCredentials))
         return {
           ...state,
           currentUser: adminCredentials,

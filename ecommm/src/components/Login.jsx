@@ -30,7 +30,9 @@ const Login = () => {
 
   return (
     <div className="auth-container">
-      <h2>Login</h2>
+      <h2>Login
+        <img src="./user.png" alt="" />
+      </h2>
       <form onSubmit={handleSubmit}>
         <input
           type="email"

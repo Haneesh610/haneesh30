@@ -8,8 +8,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: rgb(148, 153, 211);
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: rgba(91, 102, 106, 0.684);
+  font-family:fantasy;
   font-weight: bold;
   position: sticky;
   border: 1px solid black;
@@ -18,12 +18,6 @@
 .navbar-logo img {
   width: 60px;
   height: 60px;
-}
-
-.logo {
-  color: rgb(222, 149, 13);
-  font-size: 30px;
-  text-decoration: none;
 }
 
 .navbar-links {
@@ -37,10 +31,6 @@
   color: black;
   font-size: x-large;
   position: relative;
-}
-
-.navbar-links a:hover {
-  color: wheat;
 }
 
 .navbar-links a::after {
@@ -58,7 +48,6 @@
   width: 100%;
 }
 
-
 .navbar_active {
   color: red;
 }
@@ -68,7 +57,6 @@
   justify-content: end;
   align-items: center;
   width: 300px;
-
 }
 
 .cart-count {

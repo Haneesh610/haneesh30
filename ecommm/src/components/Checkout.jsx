@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCartItems, selectCartTotal } from "../redux/selector";
 import { emptyCart, orderHistory } from "../redux/action";
-import { ShoppingBag, Truck, CreditCard } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Footer from "./Footer";
@@ -23,6 +22,13 @@ const Checkout = () => {
     phone: "",
     shippingAddress: "",
     paymentMethod: "",
+    upiId: "",
+    cardNo: "",
+    cardCVV:"",
+    cardExpiry:"",
+    cardName:"",
+    netBankingDetails: "",
+    bankName: "",
   });
 
   const handleInputChange = (e) => {
@@ -31,14 +37,14 @@ const Checkout = () => {
   };
 
   const order = {
-    items:cartItems,
-    total:totalWithGST,
-    shippingAddress:formData.shippingAddress,
-    paymentMethod:formData.paymentMethod,
-    Name:formData.Name,
-    email:formData.email,
-    phone:formData.phone
-  }
+    items: cartItems,
+    total: totalWithGST,
+    shippingAddress: formData.shippingAddress,
+    paymentMethod: formData.paymentMethod,
+    Name: formData.Name,
+    email: formData.email,
+    phone: formData.phone,
+  };
 
   const handleOrder = () => {
     if (!formData.phone) {
@@ -78,11 +84,13 @@ const Checkout = () => {
   return (
     <>
       <div className="checkout-container">
-        <h2>Checkout</h2>
+        <h2>
+          Checkout <img src="./checkout.gif" alt="" />
+        </h2>
         <div className="checkout-content">
           <div className="checkout-summary">
             <h3>
-              <ShoppingBag className="icon" />
+              <img src="./package.gif" />
               Order Summary
             </h3>
             <div className="cart-items">
@@ -120,7 +128,7 @@ const Checkout = () => {
             <form className="checkout-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <h3>
-                  <Truck className="icon" />
+                  <img src="./delivery-truck.gif" alt="" />
                   Shipping Information
                 </h3>
                 <label>Name:</label>
@@ -172,7 +180,7 @@ const Checkout = () => {
 
               <div className="payment-methods">
                 <h3>
-                  <CreditCard className="icon" /> Payment Methods
+                  <img src="./wallet.gif" alt="" /> Payment Methods
                 </h3>
                 <div className="payment-option">
                   <div>
@@ -227,6 +235,87 @@ const Checkout = () => {
                     <label htmlFor="NetBanking">Net Banking</label>
                   </div>
                 </div>
+
+                {formData.paymentMethod === "UPI" && (
+                  <div className="form-group">
+                    <label>Enter UPI ID:</label>
+                    <input
+                      type="text"
+                      name="upiId"
+                      value={formData.upiId}
+                      onChange={handleInputChange}
+                      className="form-input-method"
+                      placeholder="username@okbankname"
+                      required
+                    />
+                  </div>
+                )}
+
+                {formData.paymentMethod === "Card" && (
+                  <div className="form-group">
+                    <label>Enter Card Details:</label>
+                    <input
+                      type="text"
+                      name="cardNo"
+                      value={formData.cardNo}
+                      onChange={handleInputChange}
+                      className="form-input-method"
+                      placeholder="Enter Card no: 1111 3333 5555 7777"
+                      required
+                    />
+                    <input
+                      type="number"
+                      name="cardCVV"
+                      value={formData.cardCVV}
+                      onChange={handleInputChange}
+                      className="form-input-method"
+                      placeholder="Enter CVV"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="cardExpiry"
+                      value={formData.cardExpiry}
+                      onChange={handleInputChange}
+                      className="form-input-method"
+                      placeholder="Expiry Date: MM/YY"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="cardName"
+                      value={formData.cardName}
+                      onChange={handleInputChange}
+                      className="form-input-method"
+                      placeholder="Enter Card Holder Name"
+                      required
+                    />
+                  </div>
+                )}
+
+                {formData.paymentMethod === "NetBanking" && (
+                  <div className="form-group">
+                    <label htmlFor="bankName">Select Bank</label>
+                    <select
+                      name="bankName"
+                      id="bankName"
+                      value={formData.bankName}
+                      onChange={handleInputChange}
+                      className="form-input-method"
+                      required
+                    >
+                      <option value="" selected disabled hidden>
+                        Select Bank
+                      </option>
+                      <option value="HDFC">HDFC</option>
+                      <option value="ICICI">ICICI</option>
+                      <option value="SBI">SBI</option>
+                      <option value="Axis">Axis</option>
+                      <option value="Kotak">Kotak</option>
+                      <option value="PNB">PNB</option>
+                    </select>
+                  </div>
+                )}
               </div>
 
               <button
@@ -235,6 +324,7 @@ const Checkout = () => {
                 disabled={cartItems.length === 0}
               >
                 Place Order
+                <img src="./tracking.png" alt="" />
               </button>
             </form>
           </div>

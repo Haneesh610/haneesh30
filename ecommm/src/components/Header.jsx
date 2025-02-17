@@ -33,11 +33,8 @@ const Header = () => {
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const cartCount = cartItems.length;
-
   const searchTimeout = useRef(null);
-
   const handleSearchChange = (e) => {
     const query = e.target.value;
     setSearch(query);
@@ -159,7 +156,6 @@ const Header = () => {
             )}
           </div>
 
-          {/* Hide Cart icon if user is admin */}
           {currentUser && currentUser.role !== "admin" && (
             <div className="cart-div">
               <span className="cart-count">{cartCount}</span>

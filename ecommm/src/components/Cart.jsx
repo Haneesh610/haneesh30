@@ -35,9 +35,11 @@ const Cart = () => {
   return (
     <>
       <div className="cart-page">
-        <h1>Your Cart</h1>
-        {cartItems.length === 0 ? (
-          <p>Your cart is empty.</p>
+        {/* <h1>Your Cart</h1> */}
+        {cartItems.length === 0 ? (<>
+          <p className="emptycart">Your Cart is Empty </p>
+            <img src="./emptycart.png" className="emptycart" style={{height:"300px",width:"300px"}}/>
+          </>
         ) : (
           <div className="table-container">
             <table className="cart-table">
@@ -114,6 +116,7 @@ const Cart = () => {
               </div>
               <button onClick={handleCheckout}>
                 Proceed to Checkout
+                <img src="./checkout.png" />
               </button>
             </div>
           </div>

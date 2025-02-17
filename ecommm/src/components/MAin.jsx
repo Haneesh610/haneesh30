@@ -92,6 +92,7 @@ const Main = () => {
       <div className="app-container">
         {error && <p className="error-message">Error: {error}</p>}
         <div className="filter-container">
+          <img src="./filter.gif"/>
           <select
             value={filterType}
             onChange={handleFilterChange}
@@ -138,7 +139,7 @@ const Main = () => {
                         to={`/product/${item.id}`}
                         className="view-details-btn"
                       >
-                        View Details
+                        View Details <img src="./file.png" />
                       </Link>
                     </button>
                   </div>
@@ -151,7 +152,7 @@ const Main = () => {
                     ) : currentUser ? (
                       currentUser.role !== "admin" ? (
                         <button onClick={() => handleAddToCart(item)}>
-                          Add to Cart
+                          Add to Cart <img src="./add-to-cart.png" />
                         </button>
                       ) : null
                     ) : (

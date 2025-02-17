@@ -10,7 +10,6 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 
-
 const verifiedUser = localStorage.getItem("user")
 ? JSON.parse(localStorage.getItem("user"))
 : null;
