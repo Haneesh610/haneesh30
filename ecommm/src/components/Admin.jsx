@@ -37,7 +37,7 @@ const Admin = () => {
         data: paymentValues,
         backgroundColor: '#4CAF50',
         borderColor: '#388E3C',
-        borderWidth: 1,
+        borderWidth: 3,
       },
     ],
   };

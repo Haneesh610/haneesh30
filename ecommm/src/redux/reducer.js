@@ -58,10 +58,10 @@ export const productsReducer = (state = initialState, action) => {
         };
       }
 
-      return {
-        ...state,
-        cart: updatedCart,
-      };
+      // return {
+      //   ...state,
+      //   cart: updatedCart,
+      // };
 
     case REMOVE_FROM_CART:
       const filteredCart = state.cart.filter(
@@ -84,10 +84,10 @@ export const productsReducer = (state = initialState, action) => {
         };
       }
 
-      return {
-        ...state,
-        cart: filteredCart,
-      };
+      // return {
+      //   ...state,
+      //   cart: filteredCart,
+      // };
 
     case UPDATE_CART_QUANTITY:
       const updatedCartQuantity = state.cart.map((item) =>
@@ -251,10 +251,12 @@ export const productsReducer = (state = initialState, action) => {
     case FETCH_ADMIN_DATA:
       const data = {
         totalUsers: state.users.length,
+        
         totalOrders: state.users.reduce(
           (acc, user) => acc + (user.orders?.length || 0),
           0
         ),
+        
         totalItemsSold:state.users.reduce((acc, user) => {
           const itemsSold = user.orders?.reduce((orderAcc, order) => {
             const totalItemsInOrder = order.items?.reduce((itemAcc, item) => {
@@ -264,6 +266,7 @@ export const productsReducer = (state = initialState, action) => {
           }, 0) || 0;
           return acc + itemsSold;
         }, 0),
+        
         totalRevenue: state.users.reduce((acc, user) => {
           const userRevenue = user.orders?.reduce((orderAcc, order) => {
             const orderTotal = order.total * 15;
@@ -271,6 +274,7 @@ export const productsReducer = (state = initialState, action) => {
           }, 0) || 0;
           return acc + userRevenue;
         }, 0),
+        
         paymentModeStats: state.users.reduce((acc, user) => {
           user.orders?.forEach(order => {
             const mode = order.paymentMethod || "unknown";
@@ -279,6 +283,7 @@ export const productsReducer = (state = initialState, action) => {
           return acc;
         }, {}),
       };
+      
       const totalOrdersCount = data.totalOrders;
       const paymentModePercentages = Object.keys(data.paymentModeStats).reduce((acc, mode) => {
         acc[mode] = ((data.paymentModeStats[mode] / totalOrdersCount) * 100).toFixed(2);

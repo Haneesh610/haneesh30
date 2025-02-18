@@ -138,9 +138,9 @@ export default function Home() {
             <div className="whychooseus-card">
               <div className="whychooseus-content">
                 <img
-                  src="./credit-card.gif"
+                  src="./password.gif"
                   className="whychooseus-image"
-                  alt="fragrances"
+                  alt="Secure Payment"
                 />
                 <h4>Secure Payment</h4>
               </div>
@@ -150,6 +150,7 @@ export default function Home() {
                 <img
                   src="./fast-delivery.gif"
                   className="whychooseus-image"
+                  alt="Fast Delivery"
                 />
                 <h4>Fast Delivery</h4>
               </div>
@@ -159,6 +160,7 @@ export default function Home() {
                 <img
                   src="./return-of-investment.gif"
                   className="whychooseus-image"
+                  alt="30 Days Return"
                 />
                 <h4>30 Days Return</h4>
               </div>
@@ -168,6 +170,7 @@ export default function Home() {
                 <img
                   src="./phone.gif"
                   className="whychooseus-image"
+                  alt="24/7 Support"
                 />
                 <h4>24/7 Support</h4>
               </div>

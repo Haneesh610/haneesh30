@@ -21,12 +21,14 @@ const Checkout = () => {
     email: "",
     phone: "",
     shippingAddress: "",
+    pinCode: "",
+    country: "",
     paymentMethod: "",
     upiId: "",
     cardNo: "",
-    cardCVV:"",
-    cardExpiry:"",
-    cardName:"",
+    cardCVV: "",
+    cardExpiry: "",
+    cardName: "",
     netBankingDetails: "",
     bankName: "",
   });
@@ -122,6 +124,146 @@ const Checkout = () => {
                 <strong>₹{(totalWithGST * 15).toFixed(2)}</strong>
               </div>
             </div>
+
+            <div className="payment-methods">
+              <h3>
+                <img src="./wallet.gif" alt="" /> Payment Methods
+              </h3>
+              <div className="payment-option">
+                <div>
+                  <input
+                    type="radio"
+                    id="COD"
+                    name="paymentMethod"
+                    value="COD"
+                    checked={formData.paymentMethod === "COD"}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <label htmlFor="COD">Cash on Delivery</label>
+                </div>
+
+                <div>
+                  <input
+                    type="radio"
+                    id="UPI"
+                    name="paymentMethod"
+                    value="UPI"
+                    checked={formData.paymentMethod === "UPI"}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <label htmlFor="UPI">UPI</label>
+                </div>
+
+                <div>
+                  <input
+                    type="radio"
+                    id="Card"
+                    name="paymentMethod"
+                    value="Card"
+                    checked={formData.paymentMethod === "Card"}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <label htmlFor="Card">Card</label>
+                </div>
+
+                <div>
+                  <input
+                    type="radio"
+                    id="NetBanking"
+                    name="paymentMethod"
+                    value="NetBanking"
+                    checked={formData.paymentMethod === "NetBanking"}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <label htmlFor="NetBanking">Net Banking</label>
+                </div>
+              </div>
+
+              {formData.paymentMethod === "UPI" && (
+                <div className="form-group-p">
+                  <label>Enter UPI ID:</label>
+                  <input
+                    type="text"
+                    name="upiId"
+                    value={formData.upiId}
+                    onChange={handleInputChange}
+                    className="form-input-method"
+                    placeholder="username@okbankname"
+                    required
+                  />
+                </div>
+              )}
+
+              {formData.paymentMethod === "Card" && (
+                <div className="form-group-p">
+                  <label>Enter Card Details:</label>
+                  <input
+                    type="text"
+                    name="cardNo"
+                    value={formData.cardNo}
+                    onChange={handleInputChange}
+                    className="form-input-method"
+                    placeholder="Enter Card no: 1111 3333 5555 7777"
+                    required
+                  />
+                  <input
+                    type="number"
+                    name="cardCVV"
+                    value={formData.cardCVV}
+                    onChange={handleInputChange}
+                    className="form-input-method"
+                    placeholder="Enter CVV"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="cardExpiry"
+                    value={formData.cardExpiry}
+                    onChange={handleInputChange}
+                    className="form-input-method"
+                    placeholder="Expiry Date: MM/YY"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="cardName"
+                    value={formData.cardName}
+                    onChange={handleInputChange}
+                    className="form-input-method"
+                    placeholder="Enter Card Holder Name"
+                    required
+                  />
+                </div>
+              )}
+
+              {formData.paymentMethod === "NetBanking" && (
+                <div className="form-group-p">
+                  <label htmlFor="bankName">Select Bank</label>
+                  <select
+                    name="bankName"
+                    id="bankName"
+                    value={formData.bankName}
+                    onChange={handleInputChange}
+                    className="form-input-method"
+                    required
+                  >
+                    <option value="" selected disabled hidden>
+                      Select Bank
+                    </option>
+                    <option value="HDFC">HDFC</option>
+                    <option value="ICICI">ICICI</option>
+                    <option value="SBI">SBI</option>
+                    <option value="Axis">Axis</option>
+                    <option value="Kotak">Kotak</option>
+                    <option value="PNB">PNB</option>
+                  </select>
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="order-form">
@@ -178,144 +320,28 @@ const Checkout = () => {
                 />
               </div>
 
-              <div className="payment-methods">
-                <h3>
-                  <img src="./wallet.gif" alt="" /> Payment Methods
-                </h3>
-                <div className="payment-option">
-                  <div>
-                    <input
-                      type="radio"
-                      id="COD"
-                      name="paymentMethod"
-                      value="COD"
-                      checked={formData.paymentMethod === "COD"}
-                      onChange={handleInputChange}
-                      required
-                    />
-                    <label htmlFor="COD">Cash on Delivery</label>
-                  </div>
+              <div className="form-group">
+                <label>Pin Code:</label>
+                <input
+                  type="text"
+                  name="pinCode"
+                  value={formData.pinCode}
+                  onChange={handleInputChange}
+                  className="form-input"
+                  required
+                />
+              </div>
 
-                  <div>
-                    <input
-                      type="radio"
-                      id="UPI"
-                      name="paymentMethod"
-                      value="UPI"
-                      checked={formData.paymentMethod === "UPI"}
-                      onChange={handleInputChange}
-                      required
-                    />
-                    <label htmlFor="UPI">UPI</label>
-                  </div>
-
-                  <div>
-                    <input
-                      type="radio"
-                      id="Card"
-                      name="paymentMethod"
-                      value="Card"
-                      checked={formData.paymentMethod === "Card"}
-                      onChange={handleInputChange}
-                      required
-                    />
-                    <label htmlFor="Card">Card</label>
-                  </div>
-
-                  <div>
-                    <input
-                      type="radio"
-                      id="NetBanking"
-                      name="paymentMethod"
-                      value="NetBanking"
-                      checked={formData.paymentMethod === "NetBanking"}
-                      onChange={handleInputChange}
-                      required
-                    />
-                    <label htmlFor="NetBanking">Net Banking</label>
-                  </div>
-                </div>
-
-                {formData.paymentMethod === "UPI" && (
-                  <div className="form-group">
-                    <label>Enter UPI ID:</label>
-                    <input
-                      type="text"
-                      name="upiId"
-                      value={formData.upiId}
-                      onChange={handleInputChange}
-                      className="form-input-method"
-                      placeholder="username@okbankname"
-                      required
-                    />
-                  </div>
-                )}
-
-                {formData.paymentMethod === "Card" && (
-                  <div className="form-group">
-                    <label>Enter Card Details:</label>
-                    <input
-                      type="text"
-                      name="cardNo"
-                      value={formData.cardNo}
-                      onChange={handleInputChange}
-                      className="form-input-method"
-                      placeholder="Enter Card no: 1111 3333 5555 7777"
-                      required
-                    />
-                    <input
-                      type="number"
-                      name="cardCVV"
-                      value={formData.cardCVV}
-                      onChange={handleInputChange}
-                      className="form-input-method"
-                      placeholder="Enter CVV"
-                      required
-                    />
-                    <input
-                      type="text"
-                      name="cardExpiry"
-                      value={formData.cardExpiry}
-                      onChange={handleInputChange}
-                      className="form-input-method"
-                      placeholder="Expiry Date: MM/YY"
-                      required
-                    />
-                    <input
-                      type="text"
-                      name="cardName"
-                      value={formData.cardName}
-                      onChange={handleInputChange}
-                      className="form-input-method"
-                      placeholder="Enter Card Holder Name"
-                      required
-                    />
-                  </div>
-                )}
-
-                {formData.paymentMethod === "NetBanking" && (
-                  <div className="form-group">
-                    <label htmlFor="bankName">Select Bank</label>
-                    <select
-                      name="bankName"
-                      id="bankName"
-                      value={formData.bankName}
-                      onChange={handleInputChange}
-                      className="form-input-method"
-                      required
-                    >
-                      <option value="" selected disabled hidden>
-                        Select Bank
-                      </option>
-                      <option value="HDFC">HDFC</option>
-                      <option value="ICICI">ICICI</option>
-                      <option value="SBI">SBI</option>
-                      <option value="Axis">Axis</option>
-                      <option value="Kotak">Kotak</option>
-                      <option value="PNB">PNB</option>
-                    </select>
-                  </div>
-                )}
+              <div className="form-group">
+                <label>Country:</label>
+                <input
+                  type="text"
+                  name="country"
+                  value={formData.country}
+                  onChange={handleInputChange}
+                  className="form-input"
+                  required
+                />
               </div>
 
               <button

@@ -35,8 +35,7 @@
   box-shadow: 0 10px 10px rgba(4, 97, 211, 0.264);
   text-align: center;
   flex: 1;
-  min-width: 200px;
-  max-width: 300px;
+  max-width: 270px;
   transition: transform 0.3s ease;
   margin-bottom: 30px;
   border: 1.5px solid black;
@@ -75,8 +74,8 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(9, 109, 232, 0.659);
   text-align: center;
-  width: 900px;
-  height: 550px;
+  width: 1000px;
+  height: 600px;
   margin: 0 auto;
   border: 1px solid black;
 }

@@ -11,7 +11,6 @@ const Cart = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
   const navigate = useNavigate();
-
   const GST_RATE = 0.18;
   const gstAmount = cartTotal * GST_RATE;
   const totalWithGST = cartTotal + gstAmount;
@@ -35,7 +34,6 @@ const Cart = () => {
   return (
     <>
       <div className="cart-page">
-        {/* <h1>Your Cart</h1> */}
         {cartItems.length === 0 ? (<>
           <p className="emptycart">Your Cart is Empty </p>
             <img src="./emptycart.png" className="emptycart" style={{height:"300px",width:"300px"}}/>

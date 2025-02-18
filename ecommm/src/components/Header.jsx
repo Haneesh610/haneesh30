@@ -67,6 +67,10 @@ const Header = () => {
     navigate("/");
   };
 
+  const handleAdmin = () =>{
+    navigate("/admin");
+  }
+
   const handleOrderHistory = () => {
     if (!currentUser) {
       toast.error("Please login to view order history");
@@ -202,16 +206,22 @@ const Header = () => {
                         Order History
                       </button>
                     )}
+                    {currentUser.role === "admin" && (
+                      <button className="dropdown-item admin-button" onClick={handleAdmin}>
+                      <img src="./setting.png" alt="" />
+                      Admin
+                    </button>
+                    )}
                   </div>
                 ) : (
                   <>
-                    <Link to="/login" className="dropdown-item">
+                    <Link to="/login" className="dropdown-item-li">
                       Login
                     </Link>
-                    <Link to="/signup" className="dropdown-item">
+                    <Link to="/signup" className="dropdown-item-li">
                       Sign Up
                     </Link>
-                    <Link to="/admin-login" className="dropdown-item">
+                    <Link to="/admin-login" className="dropdown-item-li">
                       Admin
                     </Link>
                   </>
